@@ -6,11 +6,10 @@ import java.util.ArrayList;
 public class Student {
     private long id;
     private String name;
-
     private ArrayList<Integer> grades;
 
     // The Student class should have a constructor that sets both the name and id property, it initializes the grades property as an empty ArrayList.
-    public Student(long id, String name, ArrayList<Integer> grades) {
+    public Student(long id, String name) {
         this.id = id;
         this.name = name;
         this.grades = new ArrayList<>();
@@ -40,6 +39,17 @@ public class Student {
         return name;
     }
 
+
+    // same bob object but diff id?
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return id == student.id;
+    }
+
+
     // adds the given grade to the grades list
     public void addGrade(int grade) {
         this.grades.add(grade);
@@ -51,15 +61,15 @@ public class Student {
     }
 
     // returns the average of the students grades
-    public double getGradeAverage(int [] nums) {
+    public double getGradeAverage() {
         double sum = 0;
         // loop thru the array
-        for (int num : nums) {
+        for (int grade : grades) {
             // add each element to the sum
-            sum += num;
+            sum += grade;
         }
         // return the sum / # of elements in the array
-        return sum / nums.length;
+        return sum / grades.size();
     }
 
 
