@@ -63,6 +63,21 @@ public class Student {
     }
 
 
+    // BONUS: Go ahead and try to add the rest of the CRUD tests and functionality.
+    // Write the methods for updateGrade() and deleteGrade() in the Student class.
 
+    // updateGrade() method
+    public void updateGrade(int index, int newGrade) {
+        if(index >= 0 && index < grades.size()) {
+            grades.set(index, newGrade);
+        } else {
+            System.out.println("Invalid Index");
+        }
+    }
+
+    // deleteGrade() method
+    public void deleteGrade(int grade) {
+        this.grades.remove(grade);
+    }
 }
 
